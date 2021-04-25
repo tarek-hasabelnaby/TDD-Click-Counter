@@ -1,23 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div data-test="component-app">
+      <ul>
+        Let's remove the [data-test] attributes from DOM properties in
+        production mode
+        <li>npm install --save-dev babel-plugin-react-remove-properties</li>
+        <li>npm run eject -- in order to config react manually</li>
+        <li>Update babel config file</li>
+        <li>Serve your app</li>
+      </ul>
     </div>
   );
 }
