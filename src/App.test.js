@@ -21,8 +21,31 @@ test("render without error", () => {
   expect(appRootComponent.length).toBe(1);
 });
 
-test("renders increment button", () => {});
-test("renders counter display", () => {});
-test("counter display starts at 0", () => {});
+test("renders increment button", () => {
+  const wrapper = setup();
+  const incrementButton = findByTestAttr(wrapper, "inc-btn");
+  // make an assertions
+  expect(incrementButton.length).toBe(1);
+});
+test("renders counter display", () => {
+  const wrapper = setup();
+  const displayCounter = findByTestAttr(wrapper, "display-counter");
+  expect(displayCounter.length).toBe(1);
+});
+test("counter display starts at 0", () => {
+  const wrapper = setup();
+  const count = findByTestAttr(wrapper, "count").text();
+  expect(count).toBe("0");
+});
 // we test the counter behaviour
-test("clicking button incrments counter display", () => {});
+test("clicking button incrments counter display", () => {
+  const wrapper = setup();
+  // find the button
+  const incrementButton = findByTestAttr(wrapper, "inc-btn");
+  // click the button --> using simulate(event ...)
+  incrementButton.simulate("click");
+
+  // find the display, and test that number has been incremented
+  const count = findByTestAttr(wrapper, "count").text();
+  expect(count).toBe("1");
+});
